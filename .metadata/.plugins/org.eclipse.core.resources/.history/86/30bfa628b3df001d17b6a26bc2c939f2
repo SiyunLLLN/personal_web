@@ -1,0 +1,19 @@
+package project.services;
+
+import java.util.Optional;
+
+import project.Entities.Book;
+
+
+
+public interface BookService {
+
+    public void save(Book book);
+
+
+	public Iterable<Book> findAll();
+
+
+	public Optional<Book> findById(Long id);
+
+}

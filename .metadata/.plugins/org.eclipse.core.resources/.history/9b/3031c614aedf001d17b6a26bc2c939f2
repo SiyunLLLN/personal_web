@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head><title>Home Page</title></head>
+<body>
+	<h1>Hello !</h1>
+	<p>Welcome to!! <span th:text="${date}"></span></p>
+	
+	<form action = "/books/title/" method = "GET" >
+		 <div class="form-group col-md-6" th:classappend="${param.error}? has-error">
+		       <input class="search" type="text" name="name" id="name" autofocus="autofocus" path= "name"/>
+		       <button type="submit">Search</button>
+		 </div>
+	</form>
+	
+	<button id="Button1" type="button" value="button" onclick = "parent.location='mailto:husiyun2018@gmail.com'" > Send Email
+	</button>
+	
+ 	<a href = "/books/new_book"> Create New Book> </a>
+
+
+	    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th><i class="fas fa-bolt"></i>Title</th>
+          <th><i class="fas fa-calendar"></i> Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="e : ${books}">
+          <td th:text = "${e.title}"></td>
+          <td th:text="${e.author}">Event date</td>
+        </tr>
+      </tbody>
+    </table>
+</body>
+</html>

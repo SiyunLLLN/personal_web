@@ -1,0 +1,9 @@
+package services;
+
+public class BookServiceImpl {
+
+	public BookServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

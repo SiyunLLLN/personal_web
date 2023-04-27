@@ -1,0 +1,31 @@
+package project.controllers;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import project.services.PhotoService;
+
+@Controller
+@RequestMapping("/photos")
+public class PhotoController {
+	
+	@Autowired PhotoService photoService;
+
+    @GetMapping
+    public String photoPage(Model model) {
+    	
+    	
+    	
+        return "homePage/photos";
+    }
+    
+    @GetMapping
+    public Iterable findAll() {
+        return photoService.findAll();
+    }
+}

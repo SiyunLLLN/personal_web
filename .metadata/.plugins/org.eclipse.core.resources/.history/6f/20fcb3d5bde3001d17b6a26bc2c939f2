@@ -1,0 +1,26 @@
+function updateText() {
+	alert("dwedwe");
+    var words = 'Hi, I am Siyun a recent Computer Science graduate.';
+    document.getElementById("word").innerHTML = words;
+    document.getElementById("word").innerHTML.style.color = "blue";
+}
+
+
+function loadText() {
+	
+	var data = Hi, I am Siyun a recent Computer Science graduate.';
+	function display_text(data) {
+	  var words = data.split(" ");
+
+	  for (var i = 0; i < words.length; i++) {
+	    var span = $('<span />').text(words[i]).hide().appendTo('#placeholder');
+	  }
+
+	  $('#placeholder').find('span').each(function(i) {
+	    $(this).delay(i * 100).fadeIn(700);
+	  });
+	}
+	document.getElementById("home").style.visibility = "visible";
+	display_text(data);
+}
+

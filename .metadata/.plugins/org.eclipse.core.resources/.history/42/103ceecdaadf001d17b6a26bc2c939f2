@@ -1,0 +1,40 @@
+package services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Service;
+
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.WriteResult;
+import com.google.firebase.cloud.FirestoreClient;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import Entities.Book;
+import Repository.BookRepository;
+
+@Service
+public class BookService {
+	
+	@Autowired
+	private BookRepository bookRepository;
+	
+//	ApiFuture<WriteResult> collectionsApiFuture = database.collection("book")
+//	DatabaseReference ref = database.getReference("server/saving-data/fireblog");
+
+	
+    public void save(Book book) {
+//        Firestore dbFirestore = FirestoreClient.getFirestore();
+        bookRepository.save(book);
+    }
+
+
+	public Iterable findAll() {
+		// TODO Auto-generated method stub
+		return bookRepository.findAll();
+	}
+
+}

@@ -1,0 +1,9 @@
+package project.services;
+
+public class PhotoServiceImpl {
+
+	public PhotoServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

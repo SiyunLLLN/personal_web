@@ -1,0 +1,28 @@
+package services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import Repository.BookRepository;
+import project.Entities.Book;
+
+@Service
+public class BookServiceImpl implements BookService {
+	
+	@Autowired
+	private BookRepository bookRepository;
+
+	
+    public void save(Book book) {
+//        Firestore dbFirestore = FirestoreClient.getFirestore();
+        bookRepository.save(book);
+    }
+
+
+
+	public Iterable<Book> findAll() {
+		// TODO Auto-generated method stub
+		return bookRepository.findAll();
+	}
+
+}

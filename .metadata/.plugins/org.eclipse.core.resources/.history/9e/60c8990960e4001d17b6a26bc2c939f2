@@ -1,0 +1,9 @@
+package project.Entities;
+
+public class Photo {
+
+	public Photo() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

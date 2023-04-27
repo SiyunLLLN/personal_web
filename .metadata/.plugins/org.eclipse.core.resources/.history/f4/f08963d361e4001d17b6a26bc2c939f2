@@ -1,0 +1,9 @@
+package project.Repository;
+
+public class PhotoRepository {
+
+	public PhotoRepository() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

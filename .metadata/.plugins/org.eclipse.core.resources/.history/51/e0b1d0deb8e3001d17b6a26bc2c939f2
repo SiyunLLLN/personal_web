@@ -1,0 +1,11 @@
+function updateText() {
+	alert("dwedwe");
+    var words = 'Hi, I am Siyun a recent Computer Science graduate.';
+    document.getElementById("word").innerHTML = words;
+    document.getElementById("word").innerHTML.style.color = "blue";
+}
+
+
+function loadText() {
+	document.getElementById("word")
+}

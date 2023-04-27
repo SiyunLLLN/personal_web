@@ -1,0 +1,14 @@
+package services;
+
+import Entities.Book;
+
+
+
+public interface BookService {
+
+    public void save(Book book);
+
+
+	public Iterable<Book> findAll();
+
+}
