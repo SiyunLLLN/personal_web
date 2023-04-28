@@ -126,6 +126,29 @@ html, body {
 
 
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding:15%;
+  padding-top:5%;
+  
+  padding-bottom:0%;
+
+height: 100%; 
+width:100%;
+  overflow: hidden;
+  background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.8));
+}
+
+.modal-content {
+	position: relative !important;
+  position: fixed;
+  /* width: 70%; */
+  max-width: 1200px;
+}
+
+
 
 
 
