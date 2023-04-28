@@ -1,0 +1,32 @@
+package project.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import project.Entities.Category;
+import project.Repository.CategoryRepository;
+
+
+
+@Service
+public class CategoryServiceImpl  implements CategoryService{
+	
+	
+	@Autowired
+    private CategoryRepository ctgRepo;
+
+	public CategoryServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Iterable findAll() {
+		// TODO Auto-generated method stub
+		return ctgRepo.findAll();
+	}
+
+	public void add(Category category) {
+		// TODO Auto-generated method stub
+		ctgRepo.save(category)
+	}
+
+}

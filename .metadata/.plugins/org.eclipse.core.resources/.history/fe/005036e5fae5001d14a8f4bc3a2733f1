@@ -1,0 +1,38 @@
+package project.controllers;
+import java.time.LocalDateTime; 
+import java.time.format.DateTimeFormatter;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import project.services.BookService;
+
+@Controller
+public class SimpleController {
+    String appName;
+    
+    
+    @Autowired
+    private BookService bookService;
+
+    @GetMapping("/")
+    public String homePage(Model model) {
+    	
+    	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+    	LocalDateTime now = LocalDateTime.now();  
+    	
+    	model.addAttribute("date", dtf.format(now));
+    	
+    	model.addAttribute("books", bookService.findAll());
+    	
+    	
+        return "homePage/home";
+    }
+    
+    @GetMapping("/cv")
+    public String cvPage(Model model ) {
+    	return "homePage/cv";
+    }
+}

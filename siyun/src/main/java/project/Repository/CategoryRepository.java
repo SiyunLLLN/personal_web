@@ -1,0 +1,13 @@
+package project.Repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import project.Entities.Category;
+import project.Entities.Photo;
+
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+	
+	Optional<Category> findByTitle(String title);
+}

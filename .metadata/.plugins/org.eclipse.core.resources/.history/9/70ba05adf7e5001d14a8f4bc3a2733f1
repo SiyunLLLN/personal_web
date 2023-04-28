@@ -1,0 +1,14 @@
+package project.Entities;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Category {
+	
+	private long id;
+
+	public Category() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

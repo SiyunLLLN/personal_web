@@ -22,6 +22,12 @@
                     <div class="form-group">
                     	<label for="title" class="col-form-label">Title</label> 
                     	<input type="text" name = "title" class="form-control" placeholder="title"> 
+                <label for="category_input">Category</label>
+                <select name = "category_id" class="form-control" id="category_input">
+                	
+                    <option th:each="c: ${categories}" th:value="${c.category_id}" th:text="${c.title}"/>
+                
+                </select>
                         <input type="file" name="photo" accept="image/*" class="form-control-file">
                     </div>
                     <button type="submit" class="btn btn-primary">Upload image</button>

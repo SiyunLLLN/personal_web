@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import project.Entities.Category;
 import project.Entities.Photo;
+import project.Repository.CategoryRepository;
 import project.Repository.PhotoRepository;
 import project.utilities.PhotoUtil;
 
@@ -18,9 +20,16 @@ public class PhotoServiceImpl implements PhotoService{
 	@Autowired
     private PhotoRepository imageRepo;
 	
-	public void upload(MultipartFile file,String title) throws IOException {
+	@Autowired
+	private CategoryRepository ctgRepository;
+	
+	public void upload(MultipartFile file, String title, long category_id) throws IOException {
 		Photo pImage = new Photo();
 		pImage.setTitle(title);
+		
+		Category ctg = ctgRepository.findById(category_id).orElse(null);
+		
+		pImage.setCategory(ctg);
 		try {
 			pImage.setImageData(PhotoUtil.compressImage(file.getBytes()));
 		} catch (IOException e) {

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html
+xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/webjars/font-awesome/css/all.min.css" />
+</head>
+
+<body>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th><i class="fas fa-map-marker-alt"></i> Category id</th>
+          <th><i class="fas fa-compass"></i> Category Title</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="c : ${categories}">
+          <td th:text="${c.title}">Title</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+</body>
+
+</html>

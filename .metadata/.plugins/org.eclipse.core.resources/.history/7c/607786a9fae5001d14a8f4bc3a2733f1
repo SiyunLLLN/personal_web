@@ -1,0 +1,24 @@
+package project.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+public class CategoryServiceImpl  implements CategoryService{
+	
+	
+	@Autowired
+    private CategoryRepository imageRepo;
+
+	public CategoryServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Iterable findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import project.Entities.Photo;
+import project.services.CategoryService;
 import project.services.PhotoService;
 import project.utilities.PhotoUtil;
 
@@ -23,6 +24,9 @@ public class PhotoController {
 	
 	@Autowired 
 	private PhotoService photoService;
+	
+	@Autowired
+	private CategoryService ctgService;
 
     @GetMapping
     public String photoPage(Model model) {
@@ -49,13 +53,14 @@ public class PhotoController {
     
     
     @GetMapping("/upload")
-    public String uploadPage() {
+    public String uploadPage(Model model) {
+    	model.addAttribute("categories", ctgService.findAll());
     	return "photos/upload";
     }
 
 	@PostMapping("/upload")
-	public String uploadImage(@RequestParam("photo")MultipartFile file, @RequestParam("title")String title) throws IOException{
-		photoService.upload(file, title);
+	public String uploadImage(@RequestParam("photo")MultipartFile file, @RequestParam("title")String title, @RequestParam("category_id")long category_id) throws IOException{
+		photoService.upload(file, title, category_id);
 		return "homepage/photos";
 	}
 }

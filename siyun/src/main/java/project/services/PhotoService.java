@@ -4,11 +4,12 @@ import java.io.IOException;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import project.Entities.Category;
 import project.Entities.Photo;
 
 public interface PhotoService {
 	
-	public void upload(MultipartFile file, String title) throws IOException;
+	public void upload(MultipartFile file, String title, long category_id) throws IOException;
 	
 	public byte[] download(String fileName);
 

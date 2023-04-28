@@ -1,0 +1,45 @@
+package project.Entities;
+
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "categories")
+public class Category {
+	
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private long category_id;
+    
+    @Column(nullable = false, unique = true)
+    private String title;
+    
+    @OneToMany(mappedBy="category")
+    private Set<Photo> photos;
+
+	public Category() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getTitle() {
+		return this.title;
+	}
+	
+	public Set<Photo> getPhotos() {
+		return this.photos;
+	}
+	
+	
+
+}

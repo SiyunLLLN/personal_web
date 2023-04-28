@@ -1,0 +1,9 @@
+package project.controllers;
+
+public class CategoryController {
+
+	public CategoryController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

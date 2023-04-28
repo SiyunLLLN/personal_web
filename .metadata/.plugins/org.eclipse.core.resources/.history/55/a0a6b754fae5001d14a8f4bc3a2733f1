@@ -1,0 +1,9 @@
+package project.Repository;
+
+public class CategoryRepository {
+
+	public CategoryRepository() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
