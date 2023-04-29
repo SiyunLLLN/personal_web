@@ -51,4 +51,9 @@ public class CategoryServiceImpl  implements CategoryService{
 	
 	}
 
+	public Iterable<Photo> findPhotos(long id) {
+		Category theCtg = ctgRepo.findById(id).orElse(null);
+		return theCtg.getPhotos();
+	}
+
 }

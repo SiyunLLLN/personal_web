@@ -1,0 +1,12 @@
+package project.controllers;
+
+@Controller
+public class LoginController {
+
+	@GetMapping("/login")
+	public String login() {
+		// TODO Auto-generated constructor stub
+		return 
+	}
+
+}

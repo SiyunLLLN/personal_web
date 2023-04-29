@@ -14,6 +14,8 @@ public interface CategoryService {
 	public void add(Category category);
 	
 	public Iterable<Photo> findAllFirstImage();
+	
+	public Iterable<Photo> findPhotos(long id);
 }
 	
 	

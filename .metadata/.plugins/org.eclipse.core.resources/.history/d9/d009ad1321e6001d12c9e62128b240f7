@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html 
+xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <title>Portfolio Website-Brad</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- linking css file -->
+  <link rel="stylesheet" th:href="@{/style.css}">
+  <!-- bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+ 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+   <link  href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/2.4.2/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/2.4.2/jquery.nanogallery2.min.js"></script>
+</head>
+
+<body style = "background-color:black;">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand fixed-top navbar-dark navbarScroll" style = "background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));">
+        <div class="container" >
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active"  th:href="@{/category}">PHOTOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="@{/cv}">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="@{/contact}">CONTACT</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+    
+<div class="container" style = "padding-top:100px; margin:0px;text-align:center;max-width:100%;">
+    
+
+    <div id="modal01" class="modal" style = 'display:none;' onclick="this.style.display='none'; ">
+		  <button type="button" class="btn-close btn-close-white" aria-label="Close" s></button>
+		  <div class="modal-content">
+		    <img id="img01" style="width:100%">
+		  </div>
+	</div>
+	
+		<div class="loader">wedewfdewfdew</div>
+		
+    	<div id = 'images' style = 'visibility:hidden;'>
+    	
+			<div class="gallery" th:each="e : ${photos}">
+				  
+			  <figure>
+			  	<!-- th:attr="onmouseover='bigImg(\'' + ${e.getId()}+  '\')', onmouseout='normalImg(\'' + ${e.getId()}+  '\')'" -->
+			    <img  th:id="${e.getId()}"   style = 'max-width: 100%;' th:src="'data:image/jpeg;base64,' + ${photoUtil.getImgData(e.imageData)}" th:attr="onclick='my(\'' + ${e.getId()}+  '\')'" />
+				  <center>
+				  		<figcaption th:text = "${e.title}" style= "color:white; margin-top:10px;font-size:18px;font-family: Verdana;"></figcaption>
+				  </center>
+			  </figure>
+
+		
+			</div> 
+
+		</div> 
+	</div>
+		
+
+		
+
+<script th:inline="javascript">
+$(document).ready(function(){
+	   $("#images").css('visibility', 'visible');
+	   $("#loader").css('display', 'none');
+	});
+	
+	
+function my(id) {
+	var ele = document.getElementById("" + id);
+	
+	/* alert(ele.src);  */
+  document.getElementById("img01").src = ele.src;
+  document.getElementById("modal01").style.display = "block";
+/*   var others = document.getElementsByClassName("gallery");
+  for (var i = 0; i < others.length; i++) {
+	  var each = others[i];
+	  each.style.display = "none";
+  	} */
+  
+  }
+</script>
+
+
+
+   
+
+
+</body>
+
+</html>

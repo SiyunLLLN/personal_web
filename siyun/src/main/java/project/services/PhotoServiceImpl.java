@@ -31,7 +31,7 @@ public class PhotoServiceImpl implements PhotoService{
 		
 		pImage.setCategory(ctg);
 		try {
-			pImage.setImageData(PhotoUtil.compressImage(file.getBytes()));
+			pImage.setImageData(file.getBytes());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,7 +41,7 @@ public class PhotoServiceImpl implements PhotoService{
 	
 	public byte[] download(String fileName){
         Optional<Photo> imageData = imageRepo.findByTitle(fileName);
-        return PhotoUtil.decompressImage(imageData.get().getImageData());
+        return imageData.get().getImageData();
     }
 
 	public Iterable findAll() {

@@ -45,7 +45,7 @@ public class PhotoUtil {
     }
     
     public String getImgData(byte[] byteData) {
-    	byte[] decompressed = decompressImage(byteData);
-        return Base64.getEncoder().encodeToString(decompressed);
+//    	byte[] decompressed = decompressImage(byteData);
+        return Base64.getEncoder().encodeToString(byteData);
     }
 }

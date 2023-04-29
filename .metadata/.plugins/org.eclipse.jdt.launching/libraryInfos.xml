@@ -24,6 +24,8 @@
         </endorsedDirs>
     </libraryInfo>
     <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home" version="14.0.1"/>
+    <libraryInfo home="/Users/husiyun/Desktop/jdk-11.0.18.jdk/Contents/Home" version="11.0.18"/>
+    <libraryInfo home="/Users/husiyun/Desktop/jdk-20.0.1" version="20.0.1"/>
     <libraryInfo home="/Library/Java/JavaVirtualMachines/openlogic-openjdk-8.jre/Contents/Home" version="1.8.0_362-internal">
         <bootpath>
             <entry path="/Library/Java/JavaVirtualMachines/openlogic-openjdk-8.jre/Contents/Home/lib/resources.jar"/>

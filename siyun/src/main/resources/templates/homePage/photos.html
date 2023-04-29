@@ -32,7 +32,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
                         <a class="nav-link" th:href="@{/}">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active"  th:href="@{/photos}">PHOTOS</a>
+                        <a class="nav-link active"  th:href="@{/category}">PHOTOS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"  th:href="@{/cv}">CV</a>
@@ -49,56 +49,53 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <div class="container" style = "padding-top:100px; margin:0px;text-align:center;max-width:100%;">
     
 
-    			<div id="modal01" class="modal" style = 'display:none;' onclick="this.style.display='none'; ">
-  <button type="button" class="btn-close btn-close-white" aria-label="Close" s></button>
-  <div class="modal-content">
-    <img id="img01" style="width:100%">
-  </div>
-</div>
-
+    <div id="modal01" class="modal" style = 'display:none;' onclick="this.style.display='none'; ">
+		  <button type="button" class="btn-close btn-close-white" aria-label="Close" s></button>
+		  <div class="modal-content">
+		    <img id="img01" style="width:100%">
+		  </div>
+	</div>
+		
+    	<div id = 'images' >
     	
-		<div class="gallery" th:each="e : ${photos}">
-		  
-		  <figure>
-		  <!-- th:attr="onmouseover='bigImg(\'' + ${e.getId()}+  '\')', onmouseout='normalImg(\'' + ${e.getId()}+  '\')'" -->
-		    <img  th:id="${e.getId()}"   style = 'max-width: 100%;' th:src="'data:image/jpeg;base64,' + ${photoUtil.getImgData(e.imageData)}" th:attr="onclick='my(\'' + ${e.getId()}+  '\')'" />
-			   <center>
-			  <figcaption th:text = "${e.title}" style= "color:white; margin-top:10px;font-size:18px;font-family: Verdana;"></figcaption>
-			  </center>
-			</figure>
+			<div class="gallery" th:each="e : ${photos}">
+				  
+			  <figure>
+			  	<!-- th:attr="onmouseover='bigImg(\'' + ${e.getId()}+  '\')', onmouseout='normalImg(\'' + ${e.getId()}+  '\')'" -->
+			    <img  th:id="${e.getId()}"   style = 'max-width: 100%;visibility:hidden;' th:src="'data:image/jpeg;base64,' + ${photoUtil.getImgData(e.imageData)}" th:attr="onclick='my(\'' + ${e.getId()}+  '\')'" />
+				  <center>
+				  		<figcaption th:text = "${e.title}" style= "color:white; margin-top:10px;font-size:18px;font-family: Verdana;"></figcaption>
+				  </center>
+			  </figure>
 
 		
+			</div> 
+
 		</div> 
+</div>
 		
-
-		
-	</div> 
-	
 
 		
 
 <script th:inline="javascript">
-function my(id) {
-	var ele = document.getElementById("" + id);
-	
-	/* alert(ele.src);  */
-  document.getElementById("img01").src = ele.src;
-  document.getElementById("modal01").style.display = "block";
-/*   var others = document.getElementsByClassName("gallery");
-  for (var i = 0; i < others.length; i++) {
-	  var each = others[i];
-	  each.style.display = "none";
-  	} */
-  
-  }
-  
-function changeBack() {
-/* 	  var others = document.getElementsByClassName("gallery");
-	  for (var i = 0; i < others.length; i++) {
-		  var each = others[i];
-		  each.style.display = "inline-block"; */
-	  	}
-
+		$(document).ready(function(){
+			   $("img").css('visibility', 'visible');
+			});
+			
+			
+		function my(id) {
+			var ele = document.getElementById("" + id);
+			
+			/* alert(ele.src);  */
+		  document.getElementById("img01").src = ele.src;
+		  document.getElementById("modal01").style.display = "block";
+		/*   var others = document.getElementsByClassName("gallery");
+		  for (var i = 0; i < others.length; i++) {
+			  var each = others[i];
+			  each.style.display = "none";
+		  	} */
+		  
+		  }
 </script>
 
 
